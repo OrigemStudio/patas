@@ -1,0 +1,65 @@
+name: patas
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.1 <3.0.0"
+
+dependencies:
+  flutter_bloc: ^8.0.1
+  dartz: ^0.10.1
+  equatable: ^2.0.3
+  google_fonts: ^2.1.0
+  flutter_modular: ^4.3.1
+  hasura_connect: ^4.0.0+2
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_flavorizr: 2.1.2
+  pedantic: 1.11.0
+  mocktail: ">=0.0.0 <1.0.0"
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+dependency_overrides:
+  archive: 3.1.8
+
+flavorizr:
+  app:
+    android:
+      flavorDimensions: "flavor-type"
+    ios:
+  flavors:
+    dev:
+      app:
+        name: "Patas App DEV"
+      ios:
+        bundleId: "com.origemstudio.patas.dev"
+      android:
+        applicationId: "com.origemstudio.patas.dev"
+    qa:
+      app:
+        name: "Patas App QA"
+      ios:
+        bundleId: "com.origemstudio.patas.qa"
+      android:
+        applicationId: "com.origemstudio.patas.qa"
+    prod:
+      app:
+        name: "Patas App PROD"
+      ios:
+        bundleId: "com.origemstudio.patas.prod"
+      android:
+        applicationId: "com.origemstudio.patas.prod"
+
+flutter:
+
+  uses-material-design: true
+
