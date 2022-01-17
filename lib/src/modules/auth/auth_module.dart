@@ -7,6 +7,7 @@ class AuthModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (context, args) => const SplashPage()),
+        ChildRoute(AppRoutes.splash,
+            child: (context, args) => const SplashPage()),
       ];
 }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../patas_exports.dart';
 
 class App extends StatelessWidget {
-  App({Key? key}) : super(key: key);
-  final router = AppRouter();
+  const App({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
