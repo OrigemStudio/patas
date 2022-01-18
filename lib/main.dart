@@ -4,5 +4,5 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'patas_exports.dart';
 
 void mainApp(Environment env) {
-  runApp(ModularApp(module: AppModule(env: env), child: App()));
+  runApp(ModularApp(module: AppModule(env: env), child: const App()));
 }
