@@ -1,6 +1,6 @@
 import '../../../../../patas_exports.dart';
 
-class SplashCubit extends BaseCubit<bool> {
+class SplashCubit extends SmartCubit<bool> {
   SplashCubit() : super(InitState<bool>(true));
 
   void onInit() {

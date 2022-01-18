@@ -12,7 +12,7 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends ModularState<SplashPage, SplashCubit> {
   @override
   Widget build(BuildContext context) {
-    return BaseListener<SplashCubit, bool>(
+    return SmartListener<SplashCubit, bool>(
       bloc: controller,
       onError: (context, error) {
         return showAboutDialog(
@@ -31,7 +31,7 @@ class _SplashPageState extends ModularState<SplashPage, SplashCubit> {
           ElevatedButton(
               onPressed: () => controller.onInit(),
               child: const Text('loading')),
-          BaseBuilder<SplashCubit, bool>(
+          SmartBuilder<SplashCubit, bool>(
               bloc: controller,
               onValue: (context, value) {
                 return Text('$value');
