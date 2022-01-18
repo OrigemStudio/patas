@@ -6,10 +6,13 @@ class AppModule extends Module {
 
   AppModule({required this.env});
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+        Bind.singleton<IStorageService>((i) => StorageService()),
+        Bind.singleton<IClientService>((i) => HasuraService()),
+      ];
 
   @override
   List<ModularRoute> get routes => [
-        ModuleRoute(AppRoutes.auth, module: AuthModule()),
+        ModuleRoute(AppRoutes.splash, module: AuthModule()),
       ];
 }

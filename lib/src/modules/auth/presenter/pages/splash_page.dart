@@ -1,43 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:progress_indicators/progress_indicators.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../../../../patas_exports.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
 
   @override
-  _SplashPageState createState() => _SplashPageState();
-}
-
-class _SplashPageState extends ModularState<SplashPage, SplashCubit> {
-  @override
   Widget build(BuildContext context) {
-    return SmartListener<SplashCubit, bool>(
-      bloc: controller,
-      onError: (context, error) {
-        return showAboutDialog(
-            context: context, applicationName: error.message);
-      },
-      onLoading: (_) {
-        return showAboutDialog(context: context, applicationName: 'loading');
-      },
-      child: Column(
-        children: [
-          ElevatedButton(
-              onPressed: () => controller.change(),
-              child: const Text('success')),
-          ElevatedButton(
-              onPressed: () => controller.error(), child: const Text('error')),
-          ElevatedButton(
-              onPressed: () => controller.onInit(),
-              child: const Text('loading')),
-          SmartBuilder<SplashCubit, bool>(
-              bloc: controller,
-              onValue: (context, value) {
-                return Text('$value');
-              }),
-        ],
-      ),
-    );
+    return BlocListener(
+        bloc: Modular.get<SplashCubit>(),
+        listener: (_, state) {
+          if (state == SplashState.authorized) {
+            Modular.to.pushReplacementNamed(AppRoutes.home);
+          }
+          if (state == SplashState.unauthorized) {
+            Modular.to.pushReplacementNamed(AppRoutes.auth);
+          }
+        },
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                // const Logo(),
+                FadingText(
+                  'Carregando...',
+                  style: GoogleFonts.poppins(
+                      textStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  )),
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 }

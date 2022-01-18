@@ -6,16 +6,15 @@ abstract class Failure implements Exception {
 }
 
 class ErrorResponse extends Failure {
-  ErrorResponse(String? message, String? statusCode)
+  ErrorResponse({String? message, String? statusCode})
       : super(message, statusCode);
 }
 
 class EmptyResponse extends Failure {
-  EmptyResponse(String? message, String? statusCode)
+  EmptyResponse({String? message, String? statusCode})
       : super(message, statusCode);
 }
 
 class InternalError extends Failure {
-  InternalError(String? message, String? statusCode)
-      : super(message, statusCode);
+  InternalError(String? message) : super(message, null);
 }

@@ -3,7 +3,8 @@ import 'package:patas/patas_exports.dart';
 
 abstract class ISmartState<S> implements Equatable {
   final S value;
-  ISmartState(this.value);
+  final bool onSubmit;
+  ISmartState(this.value, {this.onSubmit = false});
   @override
   List<Object?> get props => throw UnimplementedError();
   @override
@@ -11,7 +12,7 @@ abstract class ISmartState<S> implements Equatable {
 }
 
 class InitState<S> extends ISmartState<S> {
-  InitState(value) : super(value);
+  InitState(value, {onSubmit = false}) : super(value, onSubmit: onSubmit);
 
   @override
   List<Object?> get props => [value];
@@ -20,17 +21,18 @@ class InitState<S> extends ISmartState<S> {
 }
 
 class LoadingState<S> extends ISmartState<S> {
-  LoadingState(value) : super(value);
+  LoadingState(value, {onSubmit}) : super(value, onSubmit: onSubmit);
 }
 
 class EmptyState<S> extends ISmartState<S> {
-  EmptyState(value) : super(value);
+  EmptyState(value, {onSubmit}) : super(value, onSubmit: onSubmit);
 }
 
 class ErrorState<S> extends ISmartState<S> {
   final Failure error;
 
-  ErrorState(value, {required this.error}) : super(value);
+  ErrorState(value, {required this.error, onSubmit})
+      : super(value, onSubmit: onSubmit);
 
   @override
   List<Object?> get props => [error];
@@ -39,7 +41,7 @@ class ErrorState<S> extends ISmartState<S> {
 }
 
 class SuccessState<S> extends ISmartState<S> {
-  SuccessState(value) : super(value);
+  SuccessState(value, {onSubmit}) : super(value, onSubmit: onSubmit);
 
   @override
   List<Object?> get props => [value];

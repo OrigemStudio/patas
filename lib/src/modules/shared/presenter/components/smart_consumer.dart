@@ -5,10 +5,11 @@ import '../../../../../patas_exports.dart';
 
 class SmartConsumer<B extends StateStreamable<ISmartState<S>>, S>
     extends StatelessWidget {
-  final B bloc;
+  final B? bloc;
   final BlocBuilderCondition<ISmartState<S>>? buildWhen;
   final BlocListenerCondition<ISmartState<S>>? listenWhen;
-  final Widget Function(BuildContext context, S state) buildValue;
+  final Widget Function(BuildContext context, S state, bool onSubmit)
+      buildValue;
   final Widget Function(BuildContext context, Failure error)? buildError;
   final Widget Function(BuildContext context)? buildLoading;
   final Widget Function(BuildContext context)? buildEmpty;
@@ -34,6 +35,7 @@ class SmartConsumer<B extends StateStreamable<ISmartState<S>>, S>
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<B, ISmartState<S>>(
+        bloc: bloc,
         listenWhen: listenWhen,
         listener: (context, state) {
           if (state is SuccessState) {
@@ -57,19 +59,17 @@ class SmartConsumer<B extends StateStreamable<ISmartState<S>>, S>
         buildWhen: buildWhen,
         builder: (context, state) {
           if (state is SuccessState) {
-            return buildValue(context, state.value);
+            return buildValue(context, state.value, state.onSubmit);
           } else if (state is ErrorState) {
             return buildError != null
                 ? buildError!(context, (state as ErrorState).error)
-                : buildValue(context, state.value);
+                : buildValue(context, state.value, state.onSubmit);
           } else if (state is LoadingState) {
             return buildLoading != null
                 ? buildLoading!(context)
-                : buildValue(context, state.value);
-          } else if (state is InitState) {
-            return const SizedBox();
+                : buildValue(context, state.value, state.onSubmit);
           } else {
-            return buildValue(context, state.value);
+            return buildValue(context, state.value, state.onSubmit);
           }
         });
   }

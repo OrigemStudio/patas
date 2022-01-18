@@ -6,7 +6,7 @@ class SmartBuilder<B extends StateStreamable<ISmartState<S>>, S>
     extends StatelessWidget {
   final B bloc;
   final BlocBuilderCondition<ISmartState<S>>? buildWhen;
-  final Widget Function(BuildContext context, S state) onValue;
+  final Widget Function(BuildContext context, S state, bool onSubmit) onValue;
   final Widget Function(BuildContext context, Failure error)? onError;
   final Widget Function(BuildContext context)? onLoading;
   final Widget Function(BuildContext context)? onEmpty;
@@ -27,19 +27,19 @@ class SmartBuilder<B extends StateStreamable<ISmartState<S>>, S>
         buildWhen: buildWhen,
         builder: (context, state) {
           if (state is SuccessState) {
-            return onValue(context, state.value);
+            return onValue(context, state.value, state.onSubmit);
           } else if (state is ErrorState) {
             return onError != null
                 ? onError!(context, (state as ErrorState).error)
-                : onValue(context, state.value);
+                : onValue(context, state.value, state.onSubmit);
           } else if (state is LoadingState) {
             return onLoading != null
                 ? onLoading!(context)
-                : onValue(context, state.value);
+                : onValue(context, state.value, state.onSubmit);
           } else if (state is InitState) {
             return const SizedBox();
           } else {
-            return onValue(context, state.value);
+            return onValue(context, state.value, state.onSubmit);
           }
         });
   }
