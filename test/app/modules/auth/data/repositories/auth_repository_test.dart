@@ -14,11 +14,11 @@ void main() {
 
   group('AuthRepository Tests - ', () {
     group('auth | ', () {
-      test('when request, should return a UserEntity', () async {
+      test('when request, should return a AuthorizeEntity', () async {
         when(() => _datasource.call(Mocks.authModel))
-            .thenAnswer((_) async => Mocks.userModel);
+            .thenAnswer((_) async => Mocks.authorizeModel);
         var result = await _repository.call(entity: Mocks.authModel.toEntity);
-        expect(result.fold(id, id), isA<UserEntity>());
+        expect(result.fold(id, id), isA<AuthorizeEntity>());
       });
 
       test('when has error, should throw ErrorResponse', () async {

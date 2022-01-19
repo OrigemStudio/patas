@@ -7,12 +7,13 @@ class AuthRepositoryImpl extends IAuthRepository {
 
   AuthRepositoryImpl(this._datasource);
   @override
-  Future<Either<Failure, UserEntity>> call({required AuthEntity entity}) async {
+  Future<Either<Failure, AuthorizeEntity>> call(
+      {required AuthEntity entity}) async {
     try {
       final result = await _datasource.call(entity.toModel);
       return right(result.toEntity);
-    } on ErrorResponse catch (e) {
-      return left(e);
+    } on ErrorResponse catch (error) {
+      return left(error);
     }
   }
 }

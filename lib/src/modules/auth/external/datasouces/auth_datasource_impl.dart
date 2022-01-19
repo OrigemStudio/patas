@@ -1,19 +1,17 @@
 import '../../../../../patas_exports.dart';
 
 class AuthDatasourceImpl extends IAuthDatasouce {
-  final IClientService _api;
+  final IClientService _client;
 
-  AuthDatasourceImpl(this._api);
+  AuthDatasourceImpl(this._client);
 
   @override
-  Future<UserModel> call(AuthModel model) async {
-    //final response = await _api.get(
-    //    apiRequest: AuthRequests.getUser(AuthModel.toMap(model)));
-    //if (response.hasError) {
-    //  throw ErrorResponse('', '');
-    //} else {
-    //  return UserModel.fromJson(response.body);
-    //}
-    return const UserModel(email: '', token: '', refreshToken: '');
+  Future<AuthorizeModel> call(AuthModel model) async {
+    final response = await _client.connect.query(GetUser.query);
+    if (response['data'].isEmpty) {
+      throw ErrorResponse(message: 'Erro na autentificação');
+    } else {
+      return AuthorizeModel.fromJson(response['data']);
+    }
   }
 }

@@ -23,9 +23,9 @@ void main() {
     group('auth | ', () {
       test('when request AuthUseCase, should return no error', () async {
         when(() => _authUseCase.call(entity: any(named: 'entity')))
-            .thenAnswer((_) async => right(const UserEntity()));
+            .thenAnswer((_) async => right(const AuthorizeEntity()));
         await _authCubit.auth();
-        expect(_authCubit.state, SuccessState(const UserEntity()));
+        expect(_authCubit.state, SuccessState(const AuthorizeEntity()));
       });
 
       test('when request AuthUseCase, should return error', () async {

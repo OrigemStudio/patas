@@ -8,7 +8,8 @@ class AppModule extends Module {
   @override
   List<Bind> get binds => [
         Bind.singleton<IStorageService>((i) => StorageService()),
-        Bind.singleton<IClientService>((i) => HasuraService()),
+        Bind.singleton<IConfigsService>((i) => ConfigsService(env: env)),
+        Bind.singleton<IClientService>((i) => HasuraService(i.get())),
       ];
 
   @override
