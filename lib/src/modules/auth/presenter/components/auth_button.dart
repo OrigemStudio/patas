@@ -19,34 +19,34 @@ class AuthButton extends StatelessWidget {
           print('error');
         },
         buildLoading: (_) => const Center(child: CircularProgressIndicator()),
-        buildValue: (_, value, onSubmit) => MaterialButton(
-            height: 46,
-            minWidth:
-                MediaQuery.of(context).size.width * (onSubmit ? 0.64 : 0.8),
-            color: Colors.black,
-            child: Stack(
-              children: [
-                Visibility(
-                  visible: onSubmit,
-                  child: const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
+        buildValue: (_, value, onSubmit) => Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: MaterialButton(
+                  height: 50,
+                  minWidth: double.infinity,
+                  color: ThemeService.colors.secondary,
+                  child: Stack(
+                    children: [
+                      Visibility(
+                        visible: onSubmit,
+                        child: const Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Visibility(
+                        visible: !onSubmit,
+                        child: Text(
+                          'Entrar',
+                          style: ThemeService.styles.button(),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                Visibility(
-                  visible: !onSubmit,
-                  child: const Text(
-                    'Entrar',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    topLeft: const Radius.circular(12),
-                    bottomRight: Radius.circular(!onSubmit ? 0 : 12))),
-            onPressed: () => cubit.auth()));
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  onPressed: () => cubit.auth()),
+            ));
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pmsc_auth/exports_pmsc.dart';
+import 'package:patas/patas_exports.dart';
 
 void main() {
   late ILogoutUseCase _useCase;
