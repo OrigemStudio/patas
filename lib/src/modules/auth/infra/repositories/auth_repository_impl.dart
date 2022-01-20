@@ -7,7 +7,7 @@ class AuthRepositoryImpl extends IAuthRepository {
 
   AuthRepositoryImpl(this._datasource);
   @override
-  Future<Either<Failure, AuthorizeEntity>> call(
+  Future<Either<Failure, AuthorizedEntity>> call(
       {required AuthEntity entity}) async {
     try {
       final result = await _datasource.call(entity.toModel);

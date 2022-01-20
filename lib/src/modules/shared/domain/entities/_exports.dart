@@ -1,2 +1,2 @@
-export 'authorize_entity.dart';
-export 'user_entity.dart';
+export 'address_entity.dart';
+export 'tutor_entity.dart';

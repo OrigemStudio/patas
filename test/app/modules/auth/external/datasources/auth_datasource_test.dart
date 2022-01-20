@@ -14,11 +14,11 @@ void main() {
 
   group('AuthDatasource Tests - ', () {
     group('auth | ', () {
-      test('when request, should return a AuthorizeModel', () async {
+      test('when request, should return a AuthorizedModel', () async {
         /* when(() => _api.get(apiRequest: any(named: 'apiRequest')))
             .thenAnswer((_) async => AuthResponses.userResponse);
         var result = await _datasource.call(Mocks.authModel);
-        expect(result, isA<AuthorizeModel>());
+        expect(result, isA<AuthorizedModel>());
       });
 
       test('when status is not 200, should throw ErrorResponse', () async {

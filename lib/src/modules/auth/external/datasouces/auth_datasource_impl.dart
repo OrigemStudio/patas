@@ -6,12 +6,12 @@ class AuthDatasourceImpl extends IAuthDatasouce {
   AuthDatasourceImpl(this._client);
 
   @override
-  Future<AuthorizeModel> call(AuthModel model) async {
+  Future<AuthorizedModel> call(AuthModel model) async {
     final response = await _client.connect.query(GetUser.query);
     if (response['data'].isEmpty) {
       throw ErrorResponse(message: 'Erro na autentificação');
     } else {
-      return AuthorizeModel.fromJson(response['data']);
+      return AuthorizedModel.fromJson(response['data']);
     }
   }
 }

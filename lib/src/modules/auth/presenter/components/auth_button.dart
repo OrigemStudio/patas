@@ -10,7 +10,7 @@ class AuthButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = Modular.get<AuthCubit>();
-    return SmartConsumer<AuthCubit, AuthorizeEntity>(
+    return SmartConsumer<AuthCubit, AuthorizedEntity>(
         bloc: cubit,
         listenValue: (context, value) {
           Modular.to.pushReplacementNamed(AppRoutes.home);

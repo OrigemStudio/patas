@@ -22,6 +22,6 @@ class Mocks {
       const AuthModel(email: '12', password: '12345678');
   static AuthModel authModelWithInvalidPassword =
       const AuthModel(email: '12345678', password: '34');
-  static AuthorizeModel authorizeModel =
-      const AuthorizeModel(email: '12345678', token: '', refreshToken: '');
+  static AuthorizedModel authorizedModel =
+      const AuthorizedModel(email: '12345678', token: '', refreshToken: '');
 }

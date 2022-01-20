@@ -18,7 +18,7 @@ void main() {
     group('auth | ', () {
       test('when request AuthUseCase, should return no error', () async {
         when(() => _repository.call(entity: Mocks.authModel.toEntity))
-            .thenAnswer((_) async => right(Mocks.authorizeModel.toEntity));
+            .thenAnswer((_) async => right(Mocks.authorizedModel.toEntity));
         var result = await _useCase.call(entity: Mocks.authModel.toEntity);
         expect(result, null);
       });
@@ -35,7 +35,7 @@ void main() {
           () async {
         when(() => _repository.call(
                 entity: Mocks.authModelWithInvalidRegistration.toEntity))
-            .thenAnswer((_) async => right(Mocks.authorizeModel.toEntity));
+            .thenAnswer((_) async => right(Mocks.authorizedModel.toEntity));
         var result = await _useCase.call(
             entity: Mocks.authModelWithInvalidRegistration.toEntity);
         expect(result, 'Mátricula inválida');
@@ -46,7 +46,7 @@ void main() {
           () async {
         when(() => _repository.call(
                 entity: Mocks.authModelWithInvalidPassword.toEntity))
-            .thenAnswer((_) async => right(Mocks.authorizeModel.toEntity));
+            .thenAnswer((_) async => right(Mocks.authorizedModel.toEntity));
         var result = await _useCase.call(
             entity: Mocks.authModelWithInvalidPassword.toEntity);
         expect(result, 'Senha inválida');

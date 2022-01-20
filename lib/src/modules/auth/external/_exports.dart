@@ -1,3 +1,3 @@
-export 'datasouces/auth_datasource_impl.dart';
-export 'mocks/auth_mocks.dart';
-export 'services/get_user_query.dart';
+export 'datasouces/_exports.dart';
+export 'mocks/_exports.dart';
+export 'services/_exports.dart';

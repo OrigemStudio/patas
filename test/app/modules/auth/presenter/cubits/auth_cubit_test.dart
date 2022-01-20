@@ -23,9 +23,9 @@ void main() {
     group('auth | ', () {
       test('when request AuthUseCase, should return no error', () async {
         when(() => _authUseCase.call(entity: any(named: 'entity')))
-            .thenAnswer((_) async => right(const AuthorizeEntity()));
+            .thenAnswer((_) async => right(const AuthorizedEntity()));
         await _authCubit.auth();
-        expect(_authCubit.state, SuccessState(const AuthorizeEntity()));
+        expect(_authCubit.state, SuccessState(const AuthorizedEntity()));
       });
 
       test('when request AuthUseCase, should return error', () async {
@@ -41,7 +41,7 @@ void main() {
         when(() => _logoutUseCase.call(toLogin: any(named: 'toLogin')))
             .thenAnswer((_) async => 'ok');
         await _authCubit.logout(() {});
-        expect(_authCubit.state, AuthInit());
+        expect(_authCubit.state, isA<InitState>());
       });
     });
   });
