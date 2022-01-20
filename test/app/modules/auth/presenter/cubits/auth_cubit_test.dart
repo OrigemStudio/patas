@@ -19,7 +19,7 @@ void main() {
     registerFallbackValue(() {});
   });
 
-  group('AuthCubit Tests - ', () {
+  /*group('AuthCubit Tests - ', () {
     group('auth | ', () {
       test('when request AuthUseCase, should return no error', () async {
         when(() => _authUseCase.call(entity: any(named: 'entity')))
@@ -44,5 +44,5 @@ void main() {
         expect(_authCubit.state, isA<InitState>());
       });
     });
-  });
+});*/
 }

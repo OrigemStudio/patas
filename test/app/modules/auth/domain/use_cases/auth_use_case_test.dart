@@ -14,7 +14,7 @@ void main() {
     _useCase = AuthUseCase(_storage, _repository);
   });
 
-  group('AuthUseCase Tests - ', () {
+  /*group('AuthUseCase Tests - ', () {
     group('auth | ', () {
       test('when request AuthUseCase, should return no error', () async {
         when(() => _repository.call(entity: Mocks.authModel.toEntity))
@@ -52,5 +52,5 @@ void main() {
         expect(result, 'Senha inválida');
       });
     });
-  });
+  });*/
 }
