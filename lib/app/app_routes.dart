@@ -12,7 +12,7 @@ class AppRoutes {
   static const String findPet = '/home/find/pet';
   static const String health = '/home/pet/health';
   static const String home = '/home';
-  static const String myPets = '/home/my_pets';
+  static const String myPets = 'my_pets';
   static const String myPet = '/home/my_pets/pet';
   static const String pet = '/pet';
 }

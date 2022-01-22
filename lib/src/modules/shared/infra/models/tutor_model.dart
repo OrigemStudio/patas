@@ -14,7 +14,9 @@ class TutorModel extends TutorEntity {
       name: json['name'],
       email: json['email'],
       phone: json['phone'],
-      address: AddressModel.fromJson(json['address']));
+      address: json['address'] != null
+          ? AddressModel.fromJson(json['address'])
+          : const AddressEntity());
 
   @override
   List<Object?> get props => [id, name, email, phone];

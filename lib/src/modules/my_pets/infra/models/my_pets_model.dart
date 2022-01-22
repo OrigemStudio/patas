@@ -9,7 +9,7 @@ class MyPetsModel extends MyPetsEntity {
   }
 
   factory MyPetsModel.fromJson(Map<String, dynamic> json) => MyPetsModel(
-        tutor: TutorModel.fromJson(json['tutor']),
+        tutor: TutorModel.fromJson(json),
         pets: List<PetEntity>.from((json['pets'] as List)
             .map((pet) => PetModel.fromJson(pet))
             .toList()),

@@ -13,7 +13,7 @@ class AuthButton extends StatelessWidget {
     return SmartConsumer<AuthCubit, AuthorizedEntity>(
         bloc: cubit,
         listenValue: (context, value) {
-          Modular.to.pushReplacementNamed(AppRoutes.home);
+          Modular.to.pushReplacementNamed(AppRoutes.myPets);
         },
         listenError: (context, error) {
           print('error');
