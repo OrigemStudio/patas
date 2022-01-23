@@ -18,10 +18,8 @@ class AdoptionCubit extends SmartCubit<AdoptionEntity> {
   Future<void> updateAdoption(PetEntity petEntity, bool toAdopt) async {
     setSubmit(true);
     final result = await _updateAdoptionUseCase.call(
-        updateAdoptionEntity: UpdateAdoptionEntity(
-            tutorId: petEntity.tutor?.id,
-            petId: petEntity.id,
-            toAdopt: toAdopt));
+        updateAdoptionEntity:
+            UpdateAdoptionEntity(petId: petEntity.id, toAdopt: toAdopt));
     result.fold((error) => setError(error),
         (success) => setSuccess(value: state.value));
   }

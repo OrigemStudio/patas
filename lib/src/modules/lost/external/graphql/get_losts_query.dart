@@ -1,7 +1,7 @@
-class GetAdoptionsQuery {
+class GetLostsQuery {
   static const String value = r'''
-    query GetAdoptionMutation {
-      pets(where: {to_adopt: {_eq: true}}}) {
+    query GetLostMutation {
+      pets(where: {is_lost: {_eq: true}}}) {
         name
         photos
         sex
