@@ -10,7 +10,7 @@ class DeletePetDatasouceImpl extends IDeletePetDatasource {
   Future<SuccessResponse> call({required String petId}) async {
     try {
       final response = await _client.connect
-          .query(DeletePetQuery.value, variables: {"petId": petId});
+          .query(DeletePetMutation.value, variables: {"petId": petId});
       final json = response['data']['delete_pets'];
       return json == null
           ? throw EmptyResponse(message: 'error')

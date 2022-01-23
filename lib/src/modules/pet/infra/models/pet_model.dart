@@ -23,7 +23,7 @@ class PetModel extends PetEntity {
           (json['photos'] as List).map((photo) => photo).toList()),
       tutor: TutorModel.fromJson(json['user']));
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'name': name,
         'birth_date': birthDate,

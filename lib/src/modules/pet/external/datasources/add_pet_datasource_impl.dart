@@ -10,7 +10,7 @@ class AddPetDatasouceImpl extends IAddPetDatasource {
   Future<SuccessResponse> call({required PetModel petModel}) async {
     try {
       final response = await _client.connect
-          .query(AddPetQuery.value, variables: petModel.toJson());
+          .query(AddPetMutation.value, variables: petModel.toMap());
       final json = response['data']['insert_pets'];
       return json == null
           ? throw EmptyResponse(message: 'error')
