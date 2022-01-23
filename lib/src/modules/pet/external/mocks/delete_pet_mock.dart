@@ -21,7 +21,7 @@ class DeletePetMock {
             "email": "lucasbatista1996@hotmail.com",
             "neighborhood": "Seminário",
             "number": "148",
-            "phone": "46999254078",
+            "phones": ["46999254078"],
             "street": "Rua Angelino Bilibiu",
             "uf": "PR"
           }

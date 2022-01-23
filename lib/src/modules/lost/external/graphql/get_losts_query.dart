@@ -10,7 +10,7 @@ class GetLostsQuery {
         id
         user {
           id
-          phone
+          phones
         }
       }
     }

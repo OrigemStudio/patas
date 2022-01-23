@@ -13,7 +13,7 @@ class GetPetQuery {
           email
           neighborhood
           number
-          phone
+          phones
           street
           uf
         }

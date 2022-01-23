@@ -5,7 +5,7 @@ class GetUser {
           email
           id
           name
-          phone
+          phones
         }
       }
     ''';

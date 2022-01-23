@@ -5,13 +5,14 @@ class TutorEntity extends Equatable {
   final String? id;
   final String? name;
   final String? email;
-  final String? phone;
+  final List<String>? phones;
   final AddressEntity? address;
 
-  const TutorEntity({this.id, this.name, this.email, this.phone, this.address});
+  const TutorEntity(
+      {this.id, this.name, this.email, this.phones, this.address});
 
   @override
-  List<Object?> get props => [id, email, email, phone, address];
+  List<Object?> get props => [id, email, email, phones, address];
 
   @override
   bool? get stringify => true;

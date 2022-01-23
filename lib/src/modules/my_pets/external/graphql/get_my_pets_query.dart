@@ -5,7 +5,7 @@ class GetMyPetsQuery {
           id
           name
           email
-          phone
+          phones
           pets {
             id
             sex

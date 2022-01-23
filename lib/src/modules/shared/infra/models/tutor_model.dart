@@ -5,21 +5,23 @@ class TutorModel extends TutorEntity {
       {required String id,
       required String email,
       required String name,
-      required String phone,
+      required List<String> phones,
       required AddressEntity address})
-      : super(id: id, name: name, email: email, phone: phone, address: address);
+      : super(
+            id: id, name: name, email: email, phones: phones, address: address);
 
   factory TutorModel.fromJson(Map<String, dynamic> json) => TutorModel(
       id: json['id'],
       name: json['name'],
       email: json['email'],
-      phone: json['phone'],
+      phones: List<String>.from(
+          (json['phones'] as List).map((phone) => phone).toList()),
       address: json['address'] != null
           ? AddressModel.fromJson(json['address'])
           : const AddressEntity());
 
   @override
-  List<Object?> get props => [id, name, email, phone];
+  List<Object?> get props => [id, name, email, phones];
 
   @override
   bool? get stringify => true;
@@ -30,11 +32,11 @@ extension TutorEntityToModel on TutorEntity {
       id: id ?? '',
       name: name ?? '',
       email: email ?? '',
-      phone: phone ?? '',
+      phones: phones ?? [],
       address: const AddressEntity());
 }
 
 extension TutorModelToEntity on TutorModel {
   TutorEntity get toEntity => TutorEntity(
-      id: id, name: name, email: email, phone: phone, address: address);
+      id: id, name: name, email: email, phones: phones, address: address);
 }

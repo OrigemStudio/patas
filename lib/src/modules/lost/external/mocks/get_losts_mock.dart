@@ -15,7 +15,7 @@ class GetLostsMock {
             "id": "b2a9215f-f909-41c4-b855-accdf1c1fd18",
             "user": {
               "id": "f45d4148-4860-46b4-b76f-8cc09939c278",
-              "phone": "46999254078"
+              "phones": ["46999254078"]
             }
           }
         ]

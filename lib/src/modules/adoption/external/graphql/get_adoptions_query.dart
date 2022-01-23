@@ -10,7 +10,7 @@ class GetAdoptionsQuery {
         id
         user {
           id
-          phone
+          phones
         }
       }
     }
