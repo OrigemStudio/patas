@@ -22,6 +22,6 @@ class AuthModule extends Module {
             child: (context, args) => const RegisterPage()),
         ChildRoute(AppRoutes.resetPassword,
             child: (context, args) => const ResetPasswordPage()),
-        ModuleRoute(AppRoutes.myPets, module: MyPetsModule()),
+        ModuleRoute(AppRoutes.home, module: HomeModule()),
       ];
 }

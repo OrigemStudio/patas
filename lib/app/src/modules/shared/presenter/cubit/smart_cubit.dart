@@ -49,7 +49,7 @@ abstract class SmartCubit<S> extends Cubit<ISmartState<S>> {
   @override
   void onError(Object error, StackTrace stackTrace) {
     if (kDebugMode) {
-      print('$error, $stackTrace');
+      debugPrint('$error, $stackTrace');
     }
     super.onError(error, stackTrace);
   }

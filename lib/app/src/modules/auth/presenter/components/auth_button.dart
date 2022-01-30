@@ -13,10 +13,10 @@ class AuthButton extends StatelessWidget {
     return SmartConsumer<AuthCubit, AuthorizedEntity>(
         bloc: cubit,
         listenValue: (context, value) {
-          Modular.to.pushReplacementNamed(AppRoutes.myPets);
+          Modular.to.pushReplacementNamed(AppRoutes.home);
         },
         listenError: (context, error) {
-          print('error');
+          debugPrint('error');
         },
         buildLoading: (_) => const Center(child: CircularProgressIndicator()),
         buildValue: (_, value, onSubmit) => Padding(

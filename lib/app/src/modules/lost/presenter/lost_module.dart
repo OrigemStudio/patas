@@ -3,8 +3,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../patas_exports.dart';
 
-class LostsModule extends WidgetModule {
-  LostsModule({Key? key}) : super(key: key);
+class LostsModule extends Module {
+  LostsModule({Key? key}) : super();
 
   @override
   List<Bind> get binds => [
@@ -23,6 +23,5 @@ class LostsModule extends WidgetModule {
         Bind.lazySingleton((i) => LostCubit(i.get(), i.get())..init()),
       ];
 
-  @override
   Widget get view => const LostPage();
 }

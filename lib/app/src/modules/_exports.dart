@@ -1,5 +1,6 @@
 export 'adoption/_exports.dart';
 export 'auth/_exports.dart';
+export 'complaint/_exports.dart';
 export 'find/_exports.dart';
 export 'health/_exports.dart';
 export 'home/_exports.dart';

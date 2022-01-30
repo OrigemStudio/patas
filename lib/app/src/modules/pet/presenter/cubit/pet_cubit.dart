@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../../../../../../patas_exports.dart';
 
 class PetCubit extends SmartCubit<PetEntity> {
@@ -10,8 +12,9 @@ class PetCubit extends SmartCubit<PetEntity> {
   final IGetPetUseCase _getPetUseCase;
   final IUpdatePetUseCase _updatePetUseCase;
 
-  Future<void> init() async {
-    setSubmit(true);
+  Future<void> init({required String petId}) async {
+    setLoading();
+    debugPrint(petId);
     final result = await _getPetUseCase.call(
         petId: 'f45d4148-4860-46b4-b76f-8cc09939c278');
     result.fold((error) => setError(error), (pet) => setSuccess(value: pet));

@@ -3,9 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../patas_exports.dart';
 
-class AdoptionsModule extends WidgetModule {
-  AdoptionsModule({Key? key}) : super(key: key);
-
+class AdoptionsModule extends Module {
   @override
   List<Bind> get binds => [
         Bind.lazySingleton<IUpdateAdoptionDatasource>(
@@ -23,6 +21,5 @@ class AdoptionsModule extends WidgetModule {
         Bind.lazySingleton((i) => AdoptionCubit(i.get(), i.get())..init()),
       ];
 
-  @override
   Widget get view => const AdoptionPage();
 }

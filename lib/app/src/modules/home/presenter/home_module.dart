@@ -10,6 +10,13 @@ class HomeModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (context, args) => const HomePage()),
+        ChildRoute(AppRoutes.root, child: (context, args) => const HomePage()),
+        ModuleRoute(AppRoutes.adoption, module: AdoptionsModule()),
+        ChildRoute(AppRoutes.complaint,
+            child: (context, args) => ComplaintModule()),
+        ModuleRoute(AppRoutes.find, module: FindModule()),
+        ModuleRoute(AppRoutes.lost, module: LostsModule()),
+        ModuleRoute(AppRoutes.myPets, module: MyPetsModule()),
+        ModuleRoute(AppRoutes.pet, module: PetModule()),
       ];
 }

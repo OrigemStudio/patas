@@ -14,7 +14,7 @@ class PetForms {
 
   String get name => form.control('name').value;
   String get sex => form.control('sex').value;
-  String get birth_date => form.control('birth_date').value;
+  String get birthDate => form.control('birth_date').value;
   String get breed => form.control('breed').value;
   List<String> get photos => form.control('photos').value;
 }
