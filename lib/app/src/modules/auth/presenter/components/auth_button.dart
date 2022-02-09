@@ -4,12 +4,11 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../../patas_exports.dart';
 
-class AuthButton extends StatelessWidget {
-  const AuthButton({Key? key}) : super(key: key);
+class AuthButton extends SmartView<AuthCubit> {
+  AuthButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final cubit = Modular.get<AuthCubit>();
     return SmartConsumer<AuthCubit, AuthorizedEntity>(
         bloc: cubit,
         listenValue: (context, value) {
@@ -24,7 +23,7 @@ class AuthButton extends StatelessWidget {
               child: MaterialButton(
                   height: 50,
                   minWidth: double.infinity,
-                  color: ThemeService.colors.secondary,
+                  color: Theme.of(context).colorScheme.secondary,
                   child: Stack(
                     children: [
                       Visibility(

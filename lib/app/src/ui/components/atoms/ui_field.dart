@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:patas/patas_exports.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class UiField extends StatelessWidget {
+import '../../../../../patas_exports.dart';
+
+class UiField extends SmartView {
   final String field;
   final String label;
   final Widget? icon;
   final Widget? prefix;
   final Widget? suffix;
-  const UiField(
+  UiField(
       {Key? key,
       required this.field,
       required this.label,
@@ -25,7 +26,7 @@ class UiField extends StatelessWidget {
         label: label,
         child: ReactiveTextField(
           formControlName: field,
-          style: ThemeService.styles.caption(),
+          style: theme.textTheme.caption,
           decoration: InputDecoration(
               border: defautBorder,
               enabledBorder: defautBorder,
@@ -33,12 +34,12 @@ class UiField extends StatelessWidget {
               disabledBorder: defautBorder,
               errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: ThemeService.colors.danger)),
+                  borderSide: BorderSide(color: theme.colorScheme.error)),
               labelText: label,
-              labelStyle: ThemeService.styles.caption(),
+              labelStyle: theme.textTheme.caption,
               hintText: label,
-              hintStyle: ThemeService.styles.caption(),
-              errorStyle: ThemeService.styles.danger(),
+              hintStyle: theme.textTheme.caption,
+              errorStyle: theme.textTheme.headline6,
               icon: icon,
               prefix: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -52,5 +53,5 @@ class UiField extends StatelessWidget {
 
   OutlineInputBorder get defautBorder => OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
-      borderSide: BorderSide(color: ThemeService.colors.border));
+      borderSide: BorderSide(color: theme.colorScheme.surface));
 }

@@ -1,22 +1,19 @@
 // coverage:ignore-file
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import '../../../../../../patas_exports.dart';
 
-class AuthPage extends StatefulWidget {
-  const AuthPage({Key? key}) : super(key: key);
+class AuthPage extends SmartView<AuthCubit> {
+  AuthPage({Key? key}) : super(key: key);
 
-  @override
-  _AuthPageState createState() => _AuthPageState();
-}
-
-class _AuthPageState extends ModularState<AuthPage, AuthCubit> {
   @override
   Widget build(BuildContext context) {
+    final themeService = Modular.get<ThemeService>();
     return Scaffold(
-      backgroundColor: ThemeService.colors.background,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -28,7 +25,16 @@ class _AuthPageState extends ModularState<AuthPage, AuthCubit> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                const Logo(),
+                //const Logo(),
+                Container(
+                  height: 400,
+                  width: 400,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                ElevatedButton(
+                  child: const Text('Mudar tema'),
+                  onPressed: () => themeService.changeTheme(),
+                ),
                 Column(
                   children: [
                     Padding(
@@ -55,7 +61,7 @@ class _AuthPageState extends ModularState<AuthPage, AuthCubit> {
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.04,
                             ),
-                            const AuthButton(),
+                            AuthButton(),
                           ],
                         ),
                       ),

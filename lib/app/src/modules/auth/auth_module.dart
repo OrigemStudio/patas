@@ -17,7 +17,7 @@ class AuthModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(AppRoutes.splash,
             child: (context, args) => const SplashPage()),
-        ChildRoute(AppRoutes.auth, child: (context, args) => const AuthPage()),
+        ChildRoute(AppRoutes.auth, child: (context, args) => AuthPage()),
         ChildRoute(AppRoutes.register,
             child: (context, args) => const RegisterPage()),
         ChildRoute(AppRoutes.resetPassword,

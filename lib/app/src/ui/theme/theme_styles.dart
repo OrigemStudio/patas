@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:patas/patas_exports.dart';
 
 class ThemeStyles {
   TextStyle caption({Color? color}) {
@@ -47,16 +46,12 @@ class ThemeStyles {
 
   TextStyle titlePrimary({Color? color}) {
     return GoogleFonts.raleway(
-        fontSize: 36,
-        color: color ?? ThemeService.colors.primary,
-        fontWeight: FontWeight.w500);
+        fontSize: 36, color: color, fontWeight: FontWeight.w500);
   }
 
   TextStyle bodyPrimary({Color? color}) {
     return GoogleFonts.raleway(
-        fontSize: 16,
-        color: color ?? ThemeService.colors.primary,
-        fontWeight: FontWeight.w300);
+        fontSize: 16, color: color, fontWeight: FontWeight.w300);
   }
 
   TextStyle bodyBasic({Color? color}) {
@@ -75,8 +70,6 @@ class ThemeStyles {
 
   TextStyle danger({Color? color}) {
     return GoogleFonts.raleway(
-        fontSize: 16,
-        color: color ?? ThemeService.colors.danger,
-        fontWeight: FontWeight.w400);
+        fontSize: 16, color: color, fontWeight: FontWeight.w400);
   }
 }
