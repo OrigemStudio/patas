@@ -14,11 +14,9 @@ class SplashPage extends StatelessWidget {
     return BlocListener(
         bloc: Modular.get<SplashCubit>(),
         listener: (_, state) {
-          if (state == SplashState.authorized) {
+          if (state == SplashState.authorized ||
+              state == SplashState.unauthorized) {
             Modular.to.pushReplacementNamed(AppRoutes.home);
-          }
-          if (state == SplashState.unauthorized) {
-            Modular.to.pushReplacementNamed(AppRoutes.auth);
           }
         },
         child: Scaffold(

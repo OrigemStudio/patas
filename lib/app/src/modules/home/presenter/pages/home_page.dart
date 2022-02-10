@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:patas/app/_exports.dart';
 import 'package:patas/app/app_routes.dart';
 
 class HomePage extends StatelessWidget {
@@ -26,9 +27,7 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
                 onPressed: () => Modular.to.navigate(AppRoutes.lost),
                 child: const Text('Lost')),
-            ElevatedButton(
-                onPressed: () => Modular.to.navigate(AppRoutes.myPets),
-                child: const Text('My Pets')),
+            MyPetsButton(),
           ],
         ),
       ),

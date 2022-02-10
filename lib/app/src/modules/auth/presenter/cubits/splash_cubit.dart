@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../patas_exports.dart';
 
-enum SplashState { init, authorized, unauthorized }
+enum SplashState { init, authorized, unauthorized, error }
 
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit(this._storage) : super(SplashState.init);

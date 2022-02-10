@@ -5,12 +5,13 @@ import 'cubit/home_cubit.dart';
 class HomeModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind.factory((i) => HomeCubit()),
+        Bind.factory((i) => HomeCubit(i.get())),
       ];
 
   @override
   List<ModularRoute> get routes => [
         ChildRoute(AppRoutes.root, child: (context, args) => const HomePage()),
+        ChildRoute(AppRoutes.complaint, child: (context, args) => AuthPage()),
         ModuleRoute(AppRoutes.adoption, module: AdoptionsModule()),
         ChildRoute(AppRoutes.complaint,
             child: (context, args) => ComplaintModule()),

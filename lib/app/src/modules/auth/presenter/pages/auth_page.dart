@@ -25,16 +25,7 @@ class AuthPage extends SmartView<AuthCubit> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                //const Logo(),
-                Container(
-                  height: 400,
-                  width: 400,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-                ElevatedButton(
-                  child: const Text('Mudar tema'),
-                  onPressed: () => themeService.changeTheme(),
-                ),
+                const Logo(),
                 Column(
                   children: [
                     Padding(
