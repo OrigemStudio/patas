@@ -11,6 +11,7 @@ class App extends StatelessWidget {
         bloc: Modular.get<ThemeService>(),
         builder: (_, theme) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Patas App',
             theme: theme,
           ).modular();

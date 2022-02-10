@@ -9,13 +9,13 @@ class UiField extends SmartView {
   final Widget? icon;
   final Widget? prefix;
   final Widget? suffix;
-  UiField(
-      {Key? key,
-      required this.field,
-      required this.label,
-      this.icon,
-      this.suffix,
-      this.prefix})
+
+  UiField({Key? key,
+    required this.field,
+    required this.label,
+    this.icon,
+    this.suffix,
+    this.prefix})
       : super(key: key);
 
   @override
@@ -24,34 +24,23 @@ class UiField extends SmartView {
       padding: const EdgeInsets.all(16.0),
       child: Semantics(
         label: label,
-        child: ReactiveTextField(
-          formControlName: field,
-          style: theme.textTheme.caption,
-          decoration: InputDecoration(
-              border: defautBorder,
-              enabledBorder: defautBorder,
-              focusedBorder: defautBorder,
-              disabledBorder: defautBorder,
-              errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: theme.colorScheme.error)),
-              labelText: label,
-              labelStyle: theme.textTheme.caption,
-              hintText: label,
-              hintStyle: theme.textTheme.caption,
-              errorStyle: theme.textTheme.headline6,
-              icon: icon,
-              prefix: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: prefix,
-              ),
-              suffix: suffix),
+        child: Theme(
+          data: Theme.of(context),
+          child: ReactiveTextField(
+            formControlName: field,
+            style: theme.textTheme.caption,
+            decoration: InputDecoration(
+                labelText: label,
+                hintText: label,
+                icon: icon,
+                prefix: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: prefix,
+                ),
+                suffix: suffix),
+          ),
         ),
       ),
     );
   }
-
-  OutlineInputBorder get defautBorder => OutlineInputBorder(
-      borderRadius: BorderRadius.circular(16),
-      borderSide: BorderSide(color: theme.colorScheme.surface));
 }
