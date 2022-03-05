@@ -1,2 +1,0 @@
-colorSheme surface = border;
-textStyle headline6 = error;

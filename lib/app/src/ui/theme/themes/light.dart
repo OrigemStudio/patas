@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:patas/app/_exports.dart';
 
 class Light {
   static ThemeData get data => ThemeData(
-        colorScheme: const ColorScheme.light(
-            primary: Colors.orange, background: Colors.white),
-      inputDecorationTheme: InputDecorationTheme(
-        border: defautBorder,
-        enabledBorder: defautBorder,
-        focusedBorder: defautBorder,
-        disabledBorder: defautBorder,
-        errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Colors.green)),
-      )
+        colorScheme: ColorScheme.light(
+            primary: ThemeColors.primaryLight,
+            background: ThemeColors.backgroundLight),
+        textTheme: GoogleFonts.ralewayTextTheme().copyWith(
+            bodyText1: ThemeStyles.body(color: ThemeColors.bodyLight)),
+        inputDecorationTheme: ThemeDecorations.darkInputDecoration,
       );
 }
-
-OutlineInputBorder get defautBorder => OutlineInputBorder(
-    borderRadius: BorderRadius.circular(16),
-    borderSide: const BorderSide(color: Colors.purple));

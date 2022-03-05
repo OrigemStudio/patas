@@ -1,74 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:patas/app/_exports.dart';
 
 class ThemeStyles {
-  TextStyle caption({Color? color}) {
+  static TextStyle caption({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 20,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w300);
   }
 
-  TextStyle title({Color? color}) {
+  static TextStyle title({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 42,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w500);
   }
 
-  TextStyle subTitle({Color? color}) {
+  static TextStyle subTitle({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 20,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w100);
   }
 
-  TextStyle litleTitle({Color? color}) {
+  static TextStyle litleTitle({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 24,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w500);
   }
 
-  TextStyle body({Color? color}) {
+  static TextStyle body({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 20,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w100);
   }
 
-  TextStyle bodyBold({Color? color}) {
+  static TextStyle bodyBold({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 20,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w500);
   }
 
-  TextStyle titlePrimary({Color? color}) {
+  static TextStyle titlePrimary({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 36, color: color, fontWeight: FontWeight.w500);
   }
 
-  TextStyle bodyPrimary({Color? color}) {
+  static TextStyle bodyPrimary({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 16, color: color, fontWeight: FontWeight.w300);
   }
 
-  TextStyle bodyBasic({Color? color}) {
+  static TextStyle bodyBasic({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 16,
-        color: color ?? Colors.white,
+        color: color ?? ThemeColors.primaryDark,
         fontWeight: FontWeight.w300);
   }
 
-  TextStyle button({Color? color}) {
+  static TextStyle button({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 20,
-        color: color ?? Colors.white,
+        color: color ?? ThemeColors.primaryDark,
         fontWeight: FontWeight.w400);
   }
 
-  TextStyle danger({Color? color}) {
+  static TextStyle danger({Color? color}) {
     return GoogleFonts.raleway(
         fontSize: 16, color: color, fontWeight: FontWeight.w400);
   }

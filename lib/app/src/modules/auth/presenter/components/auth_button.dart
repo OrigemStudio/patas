@@ -38,7 +38,7 @@ class AuthButton extends SmartView<AuthCubit> {
                         visible: !onSubmit,
                         child: Text(
                           'Entrar',
-                          style: ThemeService.styles.button(),
+                          style: Theme.of(context).textTheme.button,
                         ),
                       ),
                     ],

@@ -1,6 +1,6 @@
 // coverage:ignore-file
 class Encrypt {
-  Encrypt({this.cryptoKey = 'PMSC'});
+  Encrypt({this.cryptoKey = 'Patas'});
 
   final String cryptoKey;
 

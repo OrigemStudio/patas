@@ -1,7 +1,5 @@
 // coverage:ignore-file
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import '../../../../../../patas_exports.dart';
@@ -11,7 +9,6 @@ class AuthPage extends SmartView<AuthCubit> {
 
   @override
   Widget build(BuildContext context) {
-    final themeService = Modular.get<ThemeService>();
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Stack(
