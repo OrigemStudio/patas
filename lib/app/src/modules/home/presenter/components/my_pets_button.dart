@@ -17,7 +17,7 @@ class MyPetsButton extends SmartView<SplashCubit> {
           Modular.to.pushReplacementNamed(AppRoutes.myPets);
         }
         if (state == SplashState.unauthorized) {
-          Modular.to.pushReplacementNamed(AppRoutes.auth);
+          // Modular.to.pushReplacementNamed(AppRoutes.auth);
         }
       },
       child: ElevatedButton(

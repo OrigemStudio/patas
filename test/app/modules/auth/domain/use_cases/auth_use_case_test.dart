@@ -9,7 +9,7 @@ void main() {
   setUp(() {
     _storage = StorageService();
     _repository = AuthRepositoryMock();
-    _useCase = AuthUseCase(_storage, _repository);
+    _useCase = AuthUseCase(_repository);
   });
 
   /*group('AuthUseCase Tests - ', () {

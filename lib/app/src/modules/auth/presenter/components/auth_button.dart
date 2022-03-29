@@ -12,7 +12,8 @@ class AuthButton extends SmartView<AuthCubit> {
     return SmartConsumer<AuthCubit, AuthorizedEntity>(
         bloc: cubit,
         listenValue: (context, value) {
-          Modular.to.pushReplacementNamed(AppRoutes.home);
+          Modular.to.pushNamedAndRemoveUntil(
+              AppRoutes.home, ModalRoute.withName('/'));
         },
         listenError: (context, error) {
           debugPrint('error');

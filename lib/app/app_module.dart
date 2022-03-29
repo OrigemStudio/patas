@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../patas_exports.dart';
 
@@ -8,6 +9,7 @@ class AppModule extends Module {
   @override
   List<Bind> get binds => [
         Bind.singleton((i) => ThemeService()),
+        Bind.singleton((i) => FirebaseAuth.instance),
         Bind.singleton<IStorageService>((i) => StorageService()),
         Bind.singleton<IConfigsService>((i) => ConfigsService(env: env)),
         Bind.singleton<IClientService>((i) => HasuraService(i.get())),

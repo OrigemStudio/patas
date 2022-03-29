@@ -6,7 +6,7 @@ abstract class IStorageService {
   Future<void> clear();
   Future<void> setToken({required String token});
   Future<void> setRefreshToken({required String refreshToken});
-  Future<void> setRegistration({required String email});
+  Future<void> setEmail({required String email});
   Future<void> setPassword({required String password});
   String? getToken();
   String? getRefreshToken();
@@ -59,6 +59,6 @@ class StorageService implements IStorageService {
       await _storage.setItem('password', password);
 
   @override
-  Future<void> setRegistration({required String email}) async =>
+  Future<void> setEmail({required String email}) async =>
       await _storage.setItem('email', email);
 }

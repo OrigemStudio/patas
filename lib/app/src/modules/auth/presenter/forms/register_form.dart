@@ -1,6 +1,6 @@
 import 'package:reactive_forms/reactive_forms.dart';
 
-class AuthForm {
+class RegisterForm {
   final form = FormGroup({
     'email': FormControl<String>(
         value: '', validators: [Validators.required, Validators.email]),
@@ -9,5 +9,5 @@ class AuthForm {
   });
 
   String get email => form.control('email').value;
-  String get password => form.control('password').value;
+  String get password => form.control('email').value;
 }

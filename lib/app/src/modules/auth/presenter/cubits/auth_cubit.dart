@@ -12,19 +12,11 @@ class AuthCubit extends SmartCubit<AuthorizedEntity> {
 
   FormGroup get form => authForm.form;
 
-  Future<void> verifyAuth() async {
-    setSubmit(true);
-    //final result = await _authUseCase.call(
-    //    entity: AuthEntity(email: authForm.email, password: authForm.password));
-    //result.fold((error) => setError(error), (user) => setSuccess(value: user));
-    setSuccess(value: const AuthorizedEntity());
-  }
-
   Future<void> auth() async {
     setSubmit(true);
-    //final result = await _authUseCase.call(
-    //    entity: AuthEntity(email: authForm.email, password: authForm.password));
-    //result.fold((error) => setError(error), (user) => setSuccess(value: user));
+    final result = await _authUseCase.call(
+        entity: AuthEntity(email: authForm.email, password: authForm.password));
+    result.fold((error) => setError(error), (user) => setSuccess(value: user));
     setSuccess(value: const AuthorizedEntity());
   }
 

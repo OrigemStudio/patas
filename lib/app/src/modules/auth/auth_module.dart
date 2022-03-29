@@ -9,7 +9,7 @@ class AuthModule extends Module {
         Bind.lazySingleton((i) => AuthCubit(i.get(), i.get(), i.get())),
         Bind.lazySingleton<IAuthDatasouce>((i) => AuthDatasourceImpl(i.get())),
         Bind.lazySingleton<IAuthRepository>((i) => AuthRepositoryImpl(i.get())),
-        Bind.lazySingleton<IAuthUseCase>((i) => AuthUseCase(i.get(), i.get())),
+        Bind.lazySingleton<IAuthUseCase>((i) => AuthUseCase(i.get())),
         Bind.lazySingleton<ILogoutUseCase>((i) => LogoutUseCase(i.get())),
       ];
 
@@ -19,7 +19,7 @@ class AuthModule extends Module {
             child: (context, args) => const SplashPage()),
         ChildRoute(AppRoutes.auth, child: (context, args) => AuthPage()),
         ChildRoute(AppRoutes.register,
-            child: (context, args) => const RegisterPage()),
+            child: (context, args) => RegisterPage()),
         ChildRoute(AppRoutes.resetPassword,
             child: (context, args) => const ResetPasswordPage()),
         ModuleRoute(AppRoutes.home, module: HomeModule()),

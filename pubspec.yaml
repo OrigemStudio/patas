@@ -23,6 +23,12 @@ dependencies:
   image_picker: ^0.8.4+4
   auto_size_text: ^3.0.0
   universal_io: ^2.0.4
+  firebase_core: ^1.13.1
+  firebase_auth: ^3.3.10
+  firebase_analytics: ^9.1.2
+  firebase_storage: ^10.2.9
+  hydrated_bloc: ^8.1.0
+  flutter_services_binding: ^0.1.0
   flutter:
     sdk: flutter
 
@@ -39,8 +45,7 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 
 dependency_overrides:
-  archive: 3.1.9
-
+  archive: 3.2.2
 flavorizr:
   app:
     android:
