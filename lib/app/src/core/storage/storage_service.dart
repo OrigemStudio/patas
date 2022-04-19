@@ -4,10 +4,13 @@ import '../../../../patas_exports.dart';
 
 abstract class IStorageService {
   Future<void> clear();
+  Future<String> get({required String key});
+  Future<void> put({required String key, required String value});
   Future<void> setToken({required String token});
   Future<void> setRefreshToken({required String refreshToken});
   Future<void> setEmail({required String email});
   Future<void> setPassword({required String password});
+  Future<bool> containsKey(String key);
   String? getToken();
   String? getRefreshToken();
   String? getRegistration();
@@ -20,11 +23,18 @@ class StorageService implements IStorageService {
   late LocalStorage _storage;
 
   StorageService({this.storageKey}) {
-    _storage = LocalStorage(storageKey ?? 'PMSC');
+    _storage = LocalStorage(storageKey ?? 'PATAS');
   }
 
   @override
   Future<void> clear() async => await _storage.clear();
+
+  @override
+  Future<String> get({required String key}) async => await _storage.getItem(key);
+
+  @override
+  Future<void> put({required String key, required String value}) async =>
+      await _storage.setItem(key, value);
 
   @override
   String? getRefreshToken() => _storage.getItem('refresh_token');
@@ -61,4 +71,7 @@ class StorageService implements IStorageService {
   @override
   Future<void> setEmail({required String email}) async =>
       await _storage.setItem('email', email);
+
+  @override
+  Future<bool> containsKey(String key) async => _storage.getItem(key) != null;
 }

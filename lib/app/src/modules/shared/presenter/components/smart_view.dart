@@ -12,6 +12,7 @@ abstract class SmartView<TBind extends Object> extends StatelessWidget {
   TBind get bloc => _scope;
   TBind get cubit => _scope;
   TBind get controller => _scope;
+  TBind get form => _scope;
   ThemeData get theme => _theme;
 
   @override

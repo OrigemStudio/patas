@@ -9,7 +9,6 @@ class AuthDatasourceImpl extends IAuthDatasouce {
 
   @override
   Future<AuthorizedModel> call(AuthModel model) async {
-
     final response = await _auth.signInWithEmailAndPassword(
         email: model.email, password: model.password);
     try {
@@ -20,6 +19,8 @@ class AuthDatasourceImpl extends IAuthDatasouce {
           token: await response.user?.getIdToken(),
           uid: response.user?.uid);
     } on FirebaseAuthException catch (failure) {
+      throw ErrorResponse(message: failure.message, statusCode: failure.code);
+    } on FirebaseException catch (failure) {
       throw ErrorResponse(message: failure.message, statusCode: failure.code);
     }
   }

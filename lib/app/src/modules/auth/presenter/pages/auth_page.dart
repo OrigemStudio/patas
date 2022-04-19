@@ -1,5 +1,6 @@
 // coverage:ignore-file
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import '../../../../../../patas_exports.dart';
@@ -33,23 +34,35 @@ class AuthPage extends SmartView<AuthCubit> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            UiField(
-                              field: 'email',
-                              label: 'E-mail',
-                              prefix:
-                                  SvgPicture.asset(ThemeService.icons.email),
+                            SizedBox(
+                              height: 60,
+                              child: UiField(
+                                formControlName: 'email',
+                                labelText: 'E-mail',
+                                type: TextfieldType.email,
+                                prefix:
+                                    SvgPicture.asset(ThemeService.icons.email),
+                              ),
                             ),
-                            UiField(
-                              field: 'password',
-                              label: 'Senha',
-                              prefix:
-                                  SvgPicture.asset(ThemeService.icons.password),
-                              suffix: SvgPicture.asset(ThemeService.icons.eye),
+                            SizedBox(
+                              height: 60,
+                              child: UiField(
+                                formControlName: 'password',
+                                labelText: 'Senha',
+                                type: TextfieldType.password,
+                                prefix: SvgPicture.asset(
+                                    ThemeService.icons.password),
+                                suffix:
+                                    SvgPicture.asset(ThemeService.icons.eye),
+                              ),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.04,
                             ),
                             AuthButton(),
+                            UiLinkButton('Registrar',
+                                onPressed: () =>
+                                    Modular.to.pushNamed(AppRoutes.register))
                           ],
                         ),
                       ),

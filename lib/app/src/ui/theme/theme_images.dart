@@ -1,3 +1,3 @@
 class ThemeImages {
-  String get logo => 'assets/logo.svg';
+  String get logo => 'assets/icons/logo.svg';
 }

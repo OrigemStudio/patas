@@ -12,4 +12,5 @@ class ThemeService extends Cubit<ThemeData> {
   static ThemeImages get images => ThemeImages();
   static ThemeIcons get icons => ThemeIcons();
   static ThemeStrings get strings => ThemeStrings();
+  static ThemeGradients get gradients => ThemeGradients();
 }

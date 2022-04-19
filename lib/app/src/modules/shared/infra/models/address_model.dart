@@ -24,6 +24,15 @@ class AddressModel extends AddressEntity {
         uf: json['uf'],
       );
 
+  static Map<String, dynamic> toJson(AddressEntity entity) => {
+        'cep': entity.cep,
+        'street': entity.street,
+        'number': entity.number,
+        'neighborhood': entity.neighborhood,
+        'city': entity.city,
+        'uf': entity.uf
+      };
+
   @override
   List<Object?> get props => [cep, street, number, neighborhood, city, uf];
 

@@ -13,7 +13,7 @@ class RegisterRepositoryImpl extends IRegisterRepository {
     try {
       final result = await _datasource.registerAuth(entity.toModel);
       return right(result.toEntity);
-    } on ErrorResponse catch (error) {
+    } on Failure catch (error) {
       return left(error);
     }
   }
@@ -24,7 +24,7 @@ class RegisterRepositoryImpl extends IRegisterRepository {
     try {
       final result = await _datasource.registerDb(entity.toModel);
       return right(result.toEntity);
-    } on ErrorResponse catch (error) {
+    } on Failure catch (error) {
       return left(error);
     }
   }

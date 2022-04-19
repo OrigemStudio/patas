@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../../../../patas_exports.dart';
+import '../../../../../../../patas_exports.dart';
 
 class AuthButton extends SmartView<AuthCubit> {
   AuthButton({Key? key}) : super(key: key);

@@ -10,9 +10,13 @@ class AppModule extends Module {
   List<Bind> get binds => [
         Bind.singleton((i) => ThemeService()),
         Bind.singleton((i) => FirebaseAuth.instance),
+        Bind.singleton<ICacheStorageService>((i) => CacheStorageService()),
         Bind.singleton<IStorageService>((i) => StorageService()),
         Bind.singleton<IConfigsService>((i) => ConfigsService(env: env)),
-        Bind.singleton<IClientService>((i) => HasuraService(i.get())),
+        Bind.singleton<IClientService>((i) => HasuraService(
+            i.get<IConfigsService>(),
+            i.get<FirebaseAuth>(),
+            i.get<ICacheStorageService>())),
       ];
 
   @override

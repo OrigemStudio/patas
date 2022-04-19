@@ -26,6 +26,11 @@ class HomePage extends StatelessWidget {
                 onPressed: () => Modular.to.navigate(AppRoutes.lost),
                 child: const Text('Lost')),
             MyPetsButton(),
+            ElevatedButton(
+                onPressed: () => context.read<AuthCubit>().logout(() => Modular
+                    .to
+                    .pushNamedAndRemoveUntil(AppRoutes.auth, (p0) => false)),
+                child: const Text('Logout')),
           ],
         ),
       ),

@@ -12,7 +12,7 @@ class AuthRepositoryImpl extends IAuthRepository {
     try {
       final result = await _datasource.call(entity.toModel);
       return right(result.toEntity);
-    } on ErrorResponse catch (error) {
+    } on Failure catch (error) {
       return left(error);
     }
   }

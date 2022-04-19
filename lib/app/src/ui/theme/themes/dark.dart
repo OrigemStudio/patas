@@ -6,6 +6,7 @@ import 'package:patas/app/_exports.dart';
 
 class Dark {
   static ThemeData get data => ThemeData(
+      
       colorScheme: ColorScheme.dark(
         primary: ThemeColors.primaryDark,
         background: ThemeColors.backgroundDark,

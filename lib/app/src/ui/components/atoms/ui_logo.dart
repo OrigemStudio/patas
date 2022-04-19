@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:patas/app/_exports.dart';
 
 class Logo extends StatelessWidget {
   const Logo({Key? key}) : super(key: key);
@@ -10,9 +11,7 @@ class Logo extends StatelessWidget {
       padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.03),
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.24,
-        child: SvgPicture.asset(
-          'assets/logo.svg',
-        ),
+        child: SvgPicture.asset(ThemeService.images.logo),
       ),
     );
   }

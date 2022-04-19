@@ -2,10 +2,11 @@ class AppRoutes {
   static const String root = '/';
   static const String auth = '/auth';
   static const String splash = '/';
-  static const String login = '/login';
-  static const String register = '/login/register';
+  static const String register = '/auth/register';
   static const String resetPassword = '/login/reset_password';
   static const String adoption = '/home/adoption';
+  static const String registerAddress = '/auth/register/address';
+  static const String editAddress = '/home/profile/address';
   static const String complaint = '/home/complaint';
   static const String find = 'find/';
   static const String health = '/home/pet/health';

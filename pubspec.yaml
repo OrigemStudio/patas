@@ -29,6 +29,8 @@ dependencies:
   firebase_storage: ^10.2.9
   hydrated_bloc: ^8.1.0
   flutter_services_binding: ^0.1.0
+  brasil_fields: ^1.4.2
+  easy_localization: ^3.0.0
   flutter:
     sdk: flutter
 
@@ -78,5 +80,6 @@ flutter:
 
   uses-material-design: true
   assets:
-    - 'assets/'
+    - 'assets/icons/'
+    - 'assets/translations/'
 
