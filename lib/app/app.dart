@@ -10,11 +10,13 @@ class App extends StatelessWidget {
     return BlocBuilder<ThemeService, ThemeData>(
         bloc: Modular.get<ThemeService>(),
         builder: (_, theme) {
-          return MaterialApp(
+          return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Patas App',
             theme: theme,
-          ).modular();
+            routeInformationParser: Modular.routeInformationParser,
+            routerDelegate: Modular.routerDelegate,
+          );
         });
   }
 }

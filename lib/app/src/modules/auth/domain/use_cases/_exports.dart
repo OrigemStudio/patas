@@ -1,3 +1,4 @@
+export 'get_user_use_case.dart';
 export 'auth_use_case.dart';
 export 'logout_use_case.dart';
 export 'register_auth_use_case.dart';

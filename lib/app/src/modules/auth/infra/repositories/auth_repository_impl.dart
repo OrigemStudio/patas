@@ -16,4 +16,14 @@ class AuthRepositoryImpl extends IAuthRepository {
       return left(error);
     }
   }
+
+  @override
+  Future<Either<Failure, TutorEntity>> getUser({required AuthorizedEntity entity}) async{
+    try {
+      final result = await _datasource.getUser(entity.toModel);
+      return right(result.toEntity);
+    } on Failure catch (error) {
+      return left(error);
+    }
+  }
 }

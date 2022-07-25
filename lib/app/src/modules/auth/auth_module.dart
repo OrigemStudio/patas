@@ -5,7 +5,8 @@ class AuthModule extends Module {
   @override
   List<Bind> get binds => [
         //auth
-        Bind.lazySingleton<IAuthDatasouce>((i) => AuthDatasourceImpl(i.get())),
+        Bind.lazySingleton<IAuthDatasouce>(
+            (i) => AuthDatasourceImpl(i.get(), i.get())),
         Bind.lazySingleton<IAuthRepository>((i) => AuthRepositoryImpl(i.get())),
         Bind.lazySingleton<IAuthUseCase>((i) => AuthUseCase(i.get())),
         Bind.lazySingleton<ILogoutUseCase>((i) => LogoutUseCase(i.get())),

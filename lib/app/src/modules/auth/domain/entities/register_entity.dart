@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:patas/patas_exports.dart';
 
 class RegisterEntity extends Equatable {
+  final String? id;
   final String? name;
   final String? email;
   final String? password;
@@ -9,10 +10,15 @@ class RegisterEntity extends Equatable {
   final AddressEntity? address;
 
   const RegisterEntity(
-      {this.name, this.email, this.phone, this.address, this.password});
+      {this.id,
+      this.name,
+      this.email,
+      this.phone,
+      this.address,
+      this.password});
 
   @override
-  List<Object?> get props => [password, email, email, phone, address];
+  List<Object?> get props => [id, password, email, email, phone, address];
 
   @override
   bool? get stringify => true;

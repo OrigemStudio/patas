@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hasura_connect/hasura_connect.dart';
 
 import '../../../../../../patas_exports.dart';
 
 class RegisterDatasourceImpl extends IRegisterDatasouce {
   final FirebaseAuth _auth;
-  final IClientService _clientService;
+  final IClientService _client;
 
-  RegisterDatasourceImpl(this._auth, this._clientService);
+  RegisterDatasourceImpl(this._auth, this._client);
 
   @override
   Future<AuthorizedModel> registerAuth(RegisterModel model) async {
@@ -24,8 +25,21 @@ class RegisterDatasourceImpl extends IRegisterDatasouce {
   }
 
   @override
-  Future<TutorModel> registerDb(RegisterModel model) {
-    // TODO: implement registerDb
-    throw UnimplementedError();
+  Future<TutorModel> registerDb(RegisterModel model) async {
+    try {
+      final response = await _client.connect
+          .mutation(AddUserMutation.value, variables: model.toJson());
+      final json = response['data']['user'] as List;
+      if (json.isEmpty) {
+        throw EmptyResponse(message: 'error');
+      } else {
+        final user = TutorModel.fromJson(json.first);
+        return user;
+      }
+    } on HasuraRequestError catch (error) {
+      throw ErrorResponse(
+          message: error.message,
+          statusCode: error.extensions?.code.toString());
+    }
   }
 }

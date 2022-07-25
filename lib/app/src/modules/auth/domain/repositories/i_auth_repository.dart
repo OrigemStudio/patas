@@ -4,4 +4,6 @@ import '../../../../../../patas_exports.dart';
 
 abstract class IAuthRepository {
   Future<Either<Failure, AuthorizedEntity>> call({required AuthEntity entity});
+  Future<Either<Failure, TutorEntity>> getUser(
+      {required AuthorizedEntity entity});
 }

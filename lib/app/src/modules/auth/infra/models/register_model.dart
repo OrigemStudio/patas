@@ -2,12 +2,14 @@ import '../../../../../../patas_exports.dart';
 
 class RegisterModel extends RegisterEntity {
   const RegisterModel(
-      {required String password,
+      {String? id,
+      required String password,
       required String email,
       required String name,
       required String phone,
       required AddressEntity address})
       : super(
+            id: id,
             password: password,
             name: name,
             email: email,
@@ -15,6 +17,7 @@ class RegisterModel extends RegisterEntity {
             address: address);
 
   factory RegisterModel.fromJson(Map<String, dynamic> json) => RegisterModel(
+      id: json['id'],
       password: json['password'],
       name: json['name'],
       email: json['email'],
@@ -23,12 +26,13 @@ class RegisterModel extends RegisterEntity {
           ? AddressModel.fromJson(json['address'])
           : const AddressEntity());
 
-  static Map<String, dynamic> toJson(RegisterEntity entity) => {
-        'password': entity.password,
-        'name': entity.name,
-        'email': entity.email,
-        'phone': entity.phone,
-        'address': AddressModel.toJson(entity.address ?? const AddressEntity())
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'password': password,
+        'name': name,
+        'email': email,
+        'phone': [phone].toString(),
+        'address': AddressModel.toJson(address ?? const AddressEntity())
       };
 
   @override
@@ -40,6 +44,7 @@ class RegisterModel extends RegisterEntity {
 
 extension RegisterEntityToModel on RegisterEntity {
   RegisterModel get toModel => RegisterModel(
+      id: id ?? '',
       password: password ?? '',
       name: name ?? '',
       email: email ?? '',
@@ -49,6 +54,7 @@ extension RegisterEntityToModel on RegisterEntity {
 
 extension RegisterModelToEntity on RegisterModel {
   RegisterEntity get toEntity => RegisterEntity(
+      id: id,
       password: password,
       name: name,
       email: email,

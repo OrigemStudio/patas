@@ -14,10 +14,14 @@ class RegisterCubit extends SmartCubit<AuthorizedEntity> {
   FormGroup get form => registerForm.form;
 
   Future<void> onSubmit() async {
-    print('aqui 2');
     setSubmit(true);
     final result =
         await _registerAuthUseCase.call(entity: registerForm.toEntity);
-    result.fold((error) => setError(error), (user) => setSuccess(value: user));
+    await result.fold((error) async => setError(error), (user) async {
+      final resultDb =
+          await _registerDbUseCase.call(entity: registerForm.toEntity);
+      resultDb.fold(
+          (error) => setError(error), ((r) => setSuccess(value: user)));
+    });
   }
 }
